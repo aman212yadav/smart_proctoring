@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>test page</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="left" id="test">
+      <div class="header">
+        <h1>TEST</h1>
+        <button id="full"> click to go Full screen</button>
+        <button onclick="submitAnswers()">Submit test</button>
+       </div>
+
+       <div class="blur">
+         <form action="/submit" id="answers" method="POST">
+        <ul>
+        <li>What do you mean by Network? ...</li> 
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+<li>What do you mean by Node? ...</li> <textarea name="" id="" cols="30" rows="10"></textarea>
+<li> What do you mean by Network Topology? ...</li><textarea name="" id="" cols="30" rows="10"></textarea>
+<li> What is Routers? ...</li><textarea name="" id="" cols="30" rows="10"></textarea>
+<li> What is the OSI model? ...</li><textarea name="" id="" cols="30" rows="10"></textarea>
+<li> Explain the Different layers of the OSI model. ...</li><textarea name="" id="" cols="30" rows="10"></textarea>
+<li> Describe Hub, Switch and Router? ..</li><textarea name="" id="" cols="30" rows="10"></textarea>
+         
+  
+        </ul>
+      </form>
+       </div>
+    
+    </div>
+    <div class="right" id="activity">
+      <video autoplay="true" id="videoElement"></video>
+      <div id="logs">
+
+      </div>
+    </div>
+  </div>
+
+   <script>
+     function submitAnswers(){
+       let form=document.getElementById("answers");
+       form.submit();
+     }
+     console.log("just above");
+     document.addEventListener("visibilitychange", event => {
+  if (document.visibilityState == "visible") {
+    
+  } else {
+    addElem("TAB CHANGE DETECTED");
+  }
+})
+   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+  <!-- Load the coco-ssd model. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
+
+  <script src="/js/toggleScreen.js" defer></script>
+  <script type="text/javascript" src="/js/cocosdModel.js" defer></script>
+</body>
+
+</html>
